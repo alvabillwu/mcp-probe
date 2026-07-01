@@ -90,10 +90,12 @@ class MCPClient:
         command: list[str],
         cwd: Optional[str] = None,
         env: Optional[dict] = None,
+        timeout: float = 30.0,
     ):
         self.command = command
         self.cwd = cwd
         self.env = env
+        self.timeout = timeout
         self._proc: Optional[subprocess.Popen] = None
         self._next_id = 1
         self.server: Optional[ServerInfo] = None
